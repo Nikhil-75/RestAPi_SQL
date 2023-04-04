@@ -1,10 +1,11 @@
+require('dotenv').config();
 const Sequelize = require('sequelize');
 const {PASSWORD} = require('./config')
 
-const sequelize = new Sequelize('user', 'postgres', PASSWORD,{
+const sequelize = new Sequelize('users', 'postgres', PASSWORD,{
     host:'localhost',
     dialect: 'postgres',
-    port:4000,
+    port:5432,
     pool: {
         max: 5,
         min: 0,
@@ -13,13 +14,7 @@ const sequelize = new Sequelize('user', 'postgres', PASSWORD,{
       }
 })
 
-sequelize.authenticate()
-.then(()=>{
-    console.log('database is connected')
-}).catch((err)=>{
-    console.log(err)
-});
 
-sequelize.sync();
+
 
 module.exports = sequelize;

@@ -15,13 +15,19 @@ const userSchema = {
 
     password: { type: DataTypes.STRING, allowNull: false }
 
+
     
+
 
 };
 
 User.init(userSchema,{
     sequelize,
-    className:'users'
+    className:'Users'
+
 });
+
+
+
 
 module.exports = User
